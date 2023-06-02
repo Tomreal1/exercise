@@ -18,7 +18,9 @@ public interface EmployeeDAOinterface {
 
     //a method to delete an employee
 
-    Employee deleteemployee()
+    Employee deleteemployee(Employee emp);
+
+
 
 
 }

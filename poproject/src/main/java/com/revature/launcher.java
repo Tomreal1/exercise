@@ -1,9 +1,12 @@
 package com.revature;
+import com.revature.daos.EmployeeDAO;
 import com.revature.daos.RoleDAO;
+import com.revature.models.Employee;
 import com.revature.utils.ConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class launcher {
     public static void main(String[] args) {
@@ -27,6 +30,28 @@ public class launcher {
         System.out.println(rDAO.updateRoleSalary(50000, "Manager"));
 
         System.out.println(rDAO.getRoleById(1));
+
+        //instantiat objectso we can use our method
+
+        EmployeeDAO eDAO =  new EmployeeDAO();
+
+        //insert new employe
+
+        Employee marrio = new Employee("Marrio", "Hinkle", 3);
+
+        System.out.println(eDAO.insertemployee(marrio));
+
+        //get all employee
+        System.out.println(eDAO.getAllEmployees());
+        //DIFFERENT WAY
+        ArrayList<Employee> employeesList = eDAO.getAllEmployees();
+
+        //enhanced for llop to print out each employee
+        for(Employee e : employeesList){
+            System.out.println(e);
+        }
+
+
 
     }
 }
